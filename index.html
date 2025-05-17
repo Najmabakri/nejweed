@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitation Mariage - Najma & Zakaria</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="STYLE.CSS">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-image: url("WhatsApp\ Image\ 2025-04-02\ à\ 11.22.15_be1c4ee8.jpg");
+      background-size: 500px;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .names {
+      position: relative;
+      z-index: 2;
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button {
+      background-color: #d9a7c7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c183b7;
+    }
+
+    #qrcode {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="names">Najma & Zakaria</div>
+  </header>
+
+  <section>
+    <h2>Bismillah 💍</h2>
+    <section id="invitation-style-classique">
+  <div class="classic-invite">
+    
+    
+    <div class="basmala">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+
+    <p class="invite-text">Nous avons   le plaisir de vous inviter</p>
+    
+    <h1 class="names">Najma Bakri</h1>
+    <p class="and">et</p>
+    <h2 class="names">Zakaria El Amine</h2>
+
+    <p class="event-info">
+      Le mariage aura lieu le <strong>Mardi 15 Juillet 2025</strong><br>
+      à partir de <strong>19h</strong><br>
+      à la salle <strong>Taroudane-Riad</strong>
+    </p>
+
+    <p class="darija-msg">Mar7ba bikom ffar7na, ntauma w doa3awtkoum lghzalin 🕊️💐</p>
+
+   
+  </div>
+</section>
+  </section>
+
+  <section>
+    <h3> Kheli klma zwina w chi dou3a2 ❤️</h3>
+    <textarea id="message" rows="5" placeholder="Ktoub chi klma dyal dou3a2, lhanna, tawfi9..."></textarea>
+    <button onclick="envoyerMessage()">Sift lina chi klma</button>
+  </section>
+
+  <section>
+    <h3>📥  pour ton  invitation b smitk ?</h3>
+    <input type="text" id="nomInvite" placeholder="Smitk hna...">
+    <button onclick="genererPDF()">Télécharger PDF</button>
+    <div id="qrcode"></div>
+  </section>
+
+  <script>
+    function envoyerMessage() {
+  const msg = document.getElementById("message").value;
+  if (msg.trim()) {
+    const numeroWhatsApp = "212663416702"; // ton numéro en format international, sans +
+    const textEncoded = encodeURIComponent("Salam! Voici mon message pour le mariage: " + msg);
+    const lienWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textEncoded}`;
+    window.open(lienWhatsApp, '_blank');
+  } else {
+    alert("Kteb chi 7aja awalan ✍️");
+  }
+}
+<a href="https://wa.me/212663416702?text=Salam%20Najma!%20J'ai%20bien%20reçu%20l'invitation%20🎉" target="_blank">
+  <button style="padding: 12px 20px; background-color: #25d366; color: white; border: none; border-radius: 5px; font-size: 16px;">
+    Envoyer un message WhatsApp 💌
+  </button>
+</a>
+
+    function genererPDF() {
+      const { jsPDF } = window.jspdf;
+      const nom = document.getElementById("nomInvite").value || "Cher invité";
+
+      const doc = new jsPDF();
+      doc.setFontSize(20);
+      doc.text("Invitation au mariage de Najma & Zakaria", 10, 30);
+      doc.setFontSize(14);
+      doc.text(`Salam ${nom} !`, 10, 50);
+      doc.text("Nchufek  nhar 15 juillet 2025 !", 10, 60);
+      doc.text("Mrahba bik ! ❤️", 10, 70);
+
+      doc.save(`invitation_${nom}.pdf`);
+
+     ;
+    }
+  </script>
+ 
+
+</body>
+</html>
