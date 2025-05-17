@@ -1,0 +1,64 @@
+#invitation-style-classique {
+  background: #f7f4f1;
+  padding: 60px 20px;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  position: relative;
+}
+
+.classic-invite {
+  background: white;
+  max-width: 650px;
+  margin: auto;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  position: relative;
+  color: #5a483c;
+}
+
+.classic-invite .basmala {
+  font-size: 24px;
+  color: #a88c3f;
+  margin-bottom: 30px;
+  font-family: 'Scheherazade', serif;
+}
+
+.classic-invite .names {
+  font-size: 32px;
+  margin: 10px 0;
+  color: #7b5e2e;
+}
+
+.classic-invite .and {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.classic-invite .event-info {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.classic-invite .darija-msg {
+  margin-top: 30px;
+  font-style: italic;
+  font-size: 18px;
+  color: #333;
+}
+
+.fleurs-top, .fleurs-bottom {
+  width: 130px;
+  position: absolute;
+}
+
+.fleurs-top {
+  top: -30px;
+  right: -30px;
+}
+
+.fleurs-bottom {
+  bottom: -30px;
+  left: -30px;
+  transform: rotateY(180deg);
+}
